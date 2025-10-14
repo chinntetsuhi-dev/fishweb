@@ -221,3 +221,33 @@ img{ display:block; max-width:100%; height:auto; }
 @media (prefers-reduced-motion: reduce){
   *{ transition:none !important; animation:none !important; }
 }
+/* ========== 响应式修复：手机端导航排列 ========== */
+@media (max-width: 600px){
+  .nav-inner{
+    flex-wrap: wrap;                /* 让顶栏内容在窄屏时自动换行 */
+    justify-content: center;        /* 居中对齐，看起来更平衡 */
+    text-align: center;
+    gap: 6px;                       /* 增加轻微间距，避免重叠 */
+  }
+
+  .lang-switch{
+    order: -1;                      /* 把语言切换提前到最上方 */
+    width: 100%;                    /* 独占一行 */
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .logo{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;                /* 稍微缩小字体，防止折行 */
+  }
+
+  .nav-links{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
