@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>霞ヶ浦伝説釣り师 Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- 顶部导航（保留开发者气泡 + 所有词条悬停下拉“开发中”） -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <h1 class="logo">霞ヶ浦伝説釣り师 Store</h1>
+      <nav class="nav-links" aria-label="主导航">
+        <div class="nav-item">
+          <a href="#">钓点</a>
+          <div class="nav-hover" role="status">开发中</div>
+        </div>
+        <div class="nav-item">
+          <a href="#">鱼种</a>
+          <div class="nav-hover" role="status">开发中</div>
+        </div>
+        <div class="nav-item">
+          <a href="#">钓场</a>
+          <div class="nav-hover" role="status">开发中</div>
+        </div>
+        <div class="nav-item">
+          <a href="#">鱼竿</a>
+          <div class="nav-hover" role="status">开发中</div>
+        </div>
+        <div class="nav-item">
+          <a href="#">饵料</a>
+          <div class="nav-hover" role="status">开发中</div>
+        </div>
+
+        <!-- 开发者悬停气泡 -->
+        <div class="dev-tooltip">
+          <a href="#">开发者</a>
+          <div class="tooltip-content">
+            <strong>开发者：</strong>陈哲飞 / Chinn Tetsuhi<br>
+            <span>GitHub: <a href="https://github.com/chinntetsuhi-dev" target="_blank" rel="noopener">@你的用户名</a></span><br>
+            <span>Email: chinntetsuhi@gmail.com</span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 顶部 Hero（可选背景图） -->
+  <section class="hero" style="--hero-bg-url: url('kasumigaura.jpg');">
+    <div class="container hero-inner">
+      <p class="eyebrow">Kasumigaura</p>
+      <h2 class="hero-title">把湖面上的故事，带回家</h2>
+      <p class="hero-subtitle">甄选在地水域风味与装备，从新手到大师都能找到合手之物。</p>
+    </div>
+  </section>
+
+  <!-- 产品区 -->
+  <main class="container product-section" aria-label="产品列表">
+    <!-- 卡片 1：清江鱼（订购跳转） -->
+    <article class="product-card">
+      <figure class="media">
+        <img src="nianyu.jpg" alt="清江鱼" loading="lazy" />
+        <div class="capsule">
+          <div class="capsule-top">
+            <span class="badge badge--new">新品</span>
+            <span class="badge badge--hot">热销</span>
+          </div>
+          <h3 class="capsule-title">清江鱼</h3>
+          <div class="capsule-tags"><span>淡水</span><span>湖区</span><span>冷鲜</span></div>
+          <div class="capsule-price">
+            <span class="discount">-30%</span>
+            <div class="price-wrap">
+              <del class="old">¥ 1</del>
+              <strong class="now">¥ 0</strong>
+            </div>
+          </div>
+          <button class="wish" aria-label="加入愿望单"><span class="heart">❤</span><span class="txt">加入心愿单</span></button>
+        </div>
+      </figure>
+      <h3 class="product-title">清江鱼</h3>
+      <p class="price"><span class="currency">¥</span> 0 <span class="from">起</span></p>
+      <div class="button-group">
+        <a class="btn order-btn" href="order.html?item=清江鱼" aria-label="订购 清江鱼">订购</a>
+      </div>
+    </article>
+
+    <!-- 卡片 2：鳊鱼（订购跳转） -->
+    <article class="product-card">
+      <figure class="media">
+        <img src="bianyu.jpg" alt="鳊鱼" loading="lazy" />
+        <div class="capsule">
+          <div class="capsule-top"><span class="badge badge--new">新品</span></div>
+          <h3 class="capsule-title">鳊鱼</h3>
+          <div class="capsule-tags"><span>淡水</span><span>整装</span></div>
+          <div class="capsule-price">
+            <div class="price-wrap"><strong class="now">¥ 0</strong></div>
+          </div>
+          <button class="wish" aria-label="加入愿望单"><span class="heart">❤</span><span class="txt">加入心愿单</span></button>
+        </div>
+      </figure>
+      <h3 class="product-title">鳊鱼</h3>
+      <p class="price"><span class="currency">¥</span> 0<span class="from">起</span></p>
+      <div class="button-group">
+        <a class="btn order-btn" href="order.html?item=鳊鱼" aria-label="订购 鳊鱼">订购</a>
+      </div>
+    </article>
+
+    <!-- 卡片 3：溪流鱼（保持不跳转：示例为提示） -->
+    <article class="product-card">
+      <figure class="media">
+        <img src="xiliu.jpg" alt="溪流鱼" loading="lazy" />
+        <div class="capsule">
+          <h3 class="capsule-title">溪流鱼</h3>
+          <div class="capsule-tags"><span>溪流</span><span>野捕</span></div>
+          <div class="capsule-price"><div class="price-wrap"><strong class="now">¥ 3,199</strong></div></div>
+          <button class="wish" aria-label="加入愿望单"><span class="heart">❤</span><span class="txt">加入心愿单</span></button>
+        </div>
+      </figure>
+      <h3 class="product-title">其他</h3>
+      <p class="price"><span class="currency">¥</span> 0 <span class="from">起</span></p>
+      <div class="button-group">
+        <button class="btn order-btn" aria-label="订购 溪流鱼" data-alert="true">订购</button>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 霞ヶ浦伝説釣り师 Store · <span class="muted">理性消费</span></p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.order-btn[data-alert="true"]')
+      .forEach(btn => btn.addEventListener('click', () => {
+        alert('该商品的在线订购尚未开通，敬请期待。');
+      }));
+  </script>
+</body>
+</html>
