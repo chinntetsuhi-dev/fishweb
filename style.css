@@ -251,3 +251,29 @@ img{ display:block; max-width:100%; height:auto; }
     gap: 10px;
   }
 }
+/* ========== 移动端优化：语言切换固定在最上端 ========== */
+@media (max-width: 600px){
+  .lang-switch{
+    position: fixed;           /* 固定在屏幕最上方 */
+    top: 0; left: 0; right: 0; /* 占据整行 */
+    z-index: 999;              /* 确保在导航之上 */
+    background: color-mix(in oklab, var(--bg) 70%, #fff 20%);
+    backdrop-filter: blur(10px) saturate(150%);
+    padding: 8px 0;            /* 上下留白 */
+    display: flex;
+    justify-content: center;   /* 居中语言按钮 */
+    gap: 10px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  /* 语言按钮视觉微调 */
+  .lang-switch .lang-btn{
+    font-size: 14px;
+    padding: 4px 10px;
+  }
+
+  /* 避免导航被遮住，整体下移 */
+  .navbar{
+    margin-top: 40px; /* 根据语言栏高度微调，通常 36–48px 都合适 */
+  }
+}
