@@ -4,41 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
-  <title>霞ヶ浦伝説釣り师 Store</title>
+  <title data-i18n="site.title">霞ヶ浦伝説釣り师 Store</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header class="navbar">
     <div class="container nav-inner">
-      <h1 class="logo">霞ヶ浦伝説釣り师 Store</h1>
+      <!-- 左上角语言切换（绝对定位，不挤压原有布局） -->
+      <div class="lang-switch" aria-label="言語切替 / 语言切换">
+        <button type="button" data-lang="ja" class="lang-btn">日本語</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="zh" class="lang-btn">中文</button>
+      </div>
+
+      <h1 class="logo" data-i18n="site.title">霞ヶ浦伝説釣り师 Store</h1>
       <nav class="nav-links" aria-label="主导航">
         <div class="nav-item">
-          <a href="#">钓点</a>
-          <div class="nav-hover" role="status">开发中</div>
+          <a href="#" data-i18n="nav.spots">钓点</a>
+          <div class="nav-hover" role="status" data-i18n="status.dev">开发中</div>
         </div>
         <div class="nav-item">
-          <a href="#">鱼种</a>
-          <div class="nav-hover" role="status">开发中</div>
+          <a href="#" data-i18n="nav.fish">鱼种</a>
+          <div class="nav-hover" role="status" data-i18n="status.dev">开发中</div>
         </div>
         <div class="nav-item">
-          <a href="#">钓场</a>
-          <div class="nav-hover" role="status">开发中</div>
+          <a href="#" data-i18n="nav.place">钓场</a>
+          <div class="nav-hover" role="status" data-i18n="status.dev">开发中</div>
         </div>
         <div class="nav-item">
-          <a href="#">鱼竿</a>
-          <div class="nav-hover" role="status">开发中</div>
+          <a href="#" data-i18n="nav.rod">鱼竿</a>
+          <div class="nav-hover" role="status" data-i18n="status.dev">开发中</div>
         </div>
         <div class="nav-item">
-          <a href="#">饵料</a>
-          <div class="nav-hover" role="status">开发中</div>
+          <a href="#" data-i18n="nav.bait">饵料</a>
+          <div class="nav-hover" role="status" data-i18n="status.dev">开发中</div>
         </div>
 
-        <!-- 开发者悬停气泡 -->
+        <!-- 开发者悬停气泡（固定文案保留原样，不做强翻） -->
         <div class="dev-tooltip">
-          <a href="#">开发者</a>
+          <a href="#" data-i18n="nav.dev">开发者</a>
           <div class="tooltip-content">
-            <strong>开发者：</strong>陈哲飞 / Chinn Tetsuhi<br>
+            <strong data-i18n="dev.title">开发者：</strong>陈哲飞 / Chinn Tetsuhi<br>
             <span>GitHub: <a href="https://github.com/chinntetsuhi-dev" target="_blank" rel="noopener">@chinntetsuhi-dev</a></span><br>
             <span>Email: chinntetsuhi@gmail.com</span>
           </div>
@@ -51,8 +58,8 @@
   <section class="hero" style="--hero-bg-url: url('kasumigaura.jpg');">
     <div class="container hero-inner">
       <p class="eyebrow">Kasumigaura</p>
-      <h2 class="hero-title">把湖面上的故事，带回家</h2>
-      <p class="hero-subtitle">甄选在地水域风味与装备，从新手到大师都能找到合手之物。</p>
+      <h2 class="hero-title" data-i18n="hero.title">把湖面上的故事，带回家</h2>
+      <p class="hero-subtitle" data-i18n="hero.sub">甄选在地水域风味与装备，从新手到大师都能找到合手之物。</p>
     </div>
   </section>
 
@@ -61,81 +68,132 @@
     <!-- 卡片 1：清江鱼（订购跳转） -->
     <article class="product-card">
       <figure class="media">
-        <img src="nianyu.jpg" alt="清江鱼" loading="lazy" />
+        <!-- 增加尺寸与异步解码，稳定版面 -->
+        <img src="nianyu.jpg" alt="清江鱼" loading="lazy" decoding="async" width="1200" height="900" />
         <div class="capsule">
           <div class="capsule-top">
-            <span class="badge badge--new">新品</span>
-            <span class="badge badge--hot">热销</span>
+            <span class="badge badge--new" data-i18n="badge.new">新品</span>
+            <span class="badge badge--hot" data-i18n="badge.hot">热销</span>
           </div>
-          <h3 class="capsule-title">清江鱼</h3>
-          <div class="capsule-tags"><span>淡水</span><span>湖区</span><span>冷鲜</span></div>
+          <h3 class="capsule-title" data-i18n="fish.qingjiang">清江鱼</h3>
+          <div class="capsule-tags"><span data-i18n="tag.fw">淡水</span><span data-i18n="tag.lake">湖区</span><span data-i18n="tag.chilled">冷鲜</span></div>
           <div class="capsule-price">
-            <span class="discount">-30%</span>
+            <span class="discount" data-i18n="price.off30">-30%</span>
             <div class="price-wrap">
               <del class="old">¥ 1</del>
               <strong class="now">¥ 0</strong>
             </div>
           </div>
-          <button class="wish" aria-label="加入愿望单"><span class="heart">❤</span><span class="txt">加入心愿单</span></button>
+          <button class="wish" aria-label="加入愿望单"><span class="heart">❤</span><span class="txt" data-i18n="cta.wish">加入心愿单</span></button>
         </div>
       </figure>
-      <h3 class="product-title">清江鱼</h3>
-      <p class="price"><span class="currency">¥</span> 0 <span class="from">起</span></p>
+      <h3 class="product-title" data-i18n="fish.qingjiang">清江鱼</h3>
+      <p class="price"><span class="currency">¥</span> 0 <span class="from" data-i18n="price.from">起</span></p>
       <div class="button-group">
-        <a class="btn order-btn" href="order.html?item=清江鱼" aria-label="订购 清江鱼">订购</a>
+        <a class="btn order-btn" href="order.html?item=%E6%B8%85%E6%B1%9F%E9%B1%BC" aria-label="订购 清江鱼" data-i18n="cta.order">订购</a>
       </div>
     </article>
 
     <!-- 卡片 2：鳊鱼（订购跳转） -->
     <article class="product-card">
       <figure class="media">
-        <img src="bianyu.jpg" alt="鳊鱼" loading="lazy" />
+        <img src="bianyu.jpg" alt="鳊鱼" loading="lazy" decoding="async" width="1200" height="900" />
         <div class="capsule">
-          <div class="capsule-top"><span class="badge badge--new">新品</span></div>
-          <h3 class="capsule-title">鳊鱼</h3>
-          <div class="capsule-tags"><span>淡水</span><span>整装</span></div>
+          <div class="capsule-top"><span class="badge badge--new" data-i18n="badge.new">新品</span></div>
+          <h3 class="capsule-title" data-i18n="fish.bian">鳊鱼</h3>
+          <div class="capsule-tags"><span data-i18n="tag.fw">淡水</span><span data-i18n="tag.whole">整装</span></div>
           <div class="capsule-price">
             <div class="price-wrap"><strong class="now">¥ 0</strong></div>
           </div>
-          <button class="wish" aria-label="加入愿望单"><span class="heart">❤</span><span class="txt">加入心愿单</span></button>
+          <button class="wish" aria-label="加入愿望单"><span class="heart">❤</span><span class="txt" data-i18n="cta.wish">加入心愿单</span></button>
         </div>
       </figure>
-      <h3 class="product-title">鳊鱼</h3>
-      <p class="price"><span class="currency">¥</span> 0<span class="from">起</span></p>
+      <h3 class="product-title" data-i18n="fish.bian">鳊鱼</h3>
+      <p class="price"><span class="currency">¥</span> 0 <span class="from" data-i18n="price.from">起</span></p>
       <div class="button-group">
-        <a class="btn order-btn" href="order.html?item=鳊鱼" aria-label="订购 鳊鱼">订购</a>
+        <a class="btn order-btn" href="order.html?item=%E9%B3%8A%E9%B1%BC" aria-label="订购 鳊鱼" data-i18n="cta.order">订购</a>
       </div>
     </article>
 
     <!-- 卡片 3：溪流鱼（保持不跳转：示例为提示） -->
     <article class="product-card">
       <figure class="media">
-        <img src="xiliu.jpg" alt="溪流鱼" loading="lazy" />
+        <img src="xiliu.jpg" alt="溪流鱼" loading="lazy" decoding="async" width="1200" height="900" />
         <div class="capsule">
-          <h3 class="capsule-title">溪流鱼</h3>
-          <div class="capsule-tags"><span>溪流</span><span>野捕</span></div>
+          <h3 class="capsule-title" data-i18n="fish.stream">溪流鱼</h3>
+          <div class="capsule-tags"><span data-i18n="tag.stream">溪流</span><span data-i18n="tag.wild">野捕</span></div>
           <div class="capsule-price"><div class="price-wrap"><strong class="now">¥ 3,199</strong></div></div>
-          <button class="wish" aria-label="加入愿望单"><span class="heart">❤</span><span class="txt">加入心愿单</span></button>
+          <button class="wish" aria-label="加入愿望单"><span class="heart">❤</span><span class="txt" data-i18n="cta.wish">加入心愿单</span></button>
         </div>
       </figure>
-      <h3 class="product-title">其他</h3>
-      <p class="price"><span class="currency">¥</span> 0 <span class="from">起</span></p>
+      <h3 class="product-title" data-i18n="fish.other">其他</h3>
+      <p class="price"><span class="currency">¥</span> 0 <span class="from" data-i18n="price.from">起</span></p>
       <div class="button-group">
-        <button class="btn order-btn" aria-label="订购 溪流鱼" data-alert="true">订购</button>
+        <button class="btn order-btn" aria-label="订购 溪流鱼" data-alert="true" data-i18n="cta.order">订购</button>
       </div>
     </article>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2025 霞ヶ浦伝説釣り师 Store · <span class="muted">理性消费</span></p>
+      <p><span data-i18n="footer.copy">© 2025 霞ヶ浦伝説釣り师 Store</span> · <span class="muted" data-i18n="footer.tip">理性消费</span></p>
     </div>
   </footer>
 
   <script>
+    // 简易 i18n 词典（可按需扩展键值）
+    const I18N = {
+      ja: {
+        "site.title":"霞ヶ浦伝説釣り師 Store",
+        "nav.spots":"釣り場","nav.fish":"魚種","nav.place":"釣り場所","nav.rod":"ロッド","nav.bait":"エサ","nav.dev":"開発者",
+        "status.dev":"開発中",
+        "hero.title":"湖の物語をご自宅へ","hero.sub":"地元の風味と装備を厳選。初心者から達人までぴったりが見つかります。",
+        "badge.new":"新着","badge.hot":"人気","fish.qingjiang":"清江魚","fish.bian":"鳊（ビャン）","fish.stream":"渓流魚","fish.other":"その他",
+        "tag.fw":"淡水","tag.lake":"湖域","tag.chilled":"チルド","tag.whole":"丸物","tag.stream":"渓流","tag.wild":"野捕",
+        "price.from":"より","price.off30":"-30%",
+        "cta.wish":"ほしい物リストに追加","cta.order":"注文",
+        "footer.copy":"© 2025 霞ヶ浦伝説釣り師 Store","footer.tip":"節度ある消費を"
+      },
+      zh: {
+        "site.title":"霞ヶ浦传奇钓师商店",
+        "nav.spots":"钓点","nav.fish":"鱼种","nav.place":"钓场","nav.rod":"鱼竿","nav.bait":"饵料","nav.dev":"开发者",
+        "status.dev":"开发中",
+        "hero.title":"把湖面上的故事，带回家","hero.sub":"甄选在地水域风味与装备，从新手到大师都能找到合手之物。",
+        "badge.new":"新品","badge.hot":"热销","fish.qingjiang":"清江鱼","fish.bian":"鳊鱼","fish.stream":"溪流鱼","fish.other":"其他",
+        "tag.fw":"淡水","tag.lake":"湖区","tag.chilled":"冷鲜","tag.whole":"整装","tag.stream":"溪流","tag.wild":"野捕",
+        "price.from":"起","price.off30":"-30%",
+        "cta.wish":"加入心愿单","cta.order":"订购",
+        "footer.copy":"© 2025 霞浦传奇钓师商店","footer.tip":"理性消费"
+      }
+    };
+    function applyLang(lang){
+      const d = I18N[lang] || I18N.zh;
+      document.documentElement.lang = (lang==='ja')?'ja':'zh-CN';
+      localStorage.setItem('lang', lang);
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const k = el.getAttribute('data-i18n');
+        if(d[k]!=null) el.textContent = d[k];
+      });
+      document.title = d["site.title"] || document.title;
+      // 按钮的 alert 文案也做语言化
+      document.querySelectorAll('.order-btn[data-alert="true"]').forEach(btn=>{
+        btn.onclick = () => alert(lang==='ja' ? 'オンライン注文は準備中です。' : '该商品的在线订购尚未开通，敬请期待。');
+      });
+    }
+    // 初始化
+    (function(){
+      const saved = localStorage.getItem('lang') || 'zh';
+      applyLang(saved);
+      document.querySelectorAll('.lang-switch [data-lang]').forEach(b=>{
+        b.addEventListener('click', ()=>applyLang(b.dataset.lang));
+      });
+    })();
+
+    // 原有：未开通商品提示（守护）
     document.querySelectorAll('.order-btn[data-alert="true"]')
       .forEach(btn => btn.addEventListener('click', () => {
-        alert('该商品的在线订购尚未开通，敬请期待。');
+        const lang = localStorage.getItem('lang') || 'zh';
+        alert(lang==='ja' ? 'オンライン注文は準備中です。' : '该商品的在线订购尚未开通，敬请期待。');
       }));
   </script>
 </body>

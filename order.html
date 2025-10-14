@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
-  <title>提交订购 · 霞ヶ浦伝説釣り师 Store</title>
+  <title data-i18n="order.title">提交订购 · 霞ヶ浦伝説釣り师 Store</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     .order-wrap{ width:min(100%,720px); margin: clamp(24px,5vw,48px) auto; padding:24px; border:1px solid var(--hairline); border-radius:16px; background:var(--surface); box-shadow:var(--shadow-1),var(--shadow-2); }
@@ -27,68 +27,131 @@
 <body>
   <header class="navbar">
     <div class="container nav-inner">
-      <h1 class="logo"><a href="index.html" aria-label="返回首页">←</a> 提交订购</h1>
+      <!-- 左上角语言切换 -->
+      <div class="lang-switch" aria-label="言語切替 / 语言切换">
+        <button type="button" data-lang="ja" class="lang-btn">日本語</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="zh" class="lang-btn">中文</button>
+      </div>
+
+      <h1 class="logo">
+        <a href="index.html" aria-label="返回首页" data-i18n="order.back">← 返回首页</a>
+        <span data-i18n="order.heading">提交订购</span>
+      </h1>
     </div>
   </header>
 
   <main class="container">
     <!-- 使用你的 Formspree Endpoint -->
-    <form class="order-wrap" action="https://formspree.io/f/mpwyonvp" method="POST">
-      <h1>订购信息</h1>
-      <p class="note">提交后系统会把信息发送到店主的邮箱。</p>
+    <form class="order-wrap" action="https://formspree.io/f/mpwyonvp" method="POST" id="orderForm">
+      <h1 data-i18n="order.info">订购信息</h1>
+      <p class="note" data-i18n="order.note">提交后系统会把信息发送到店主的邮箱。</p>
 
       <div class="order-grid">
         <div class="full">
-          <label for="name">姓名 *</label>
-          <input id="name" name="name" placeholder="陈哲飞" required />
+          <label for="name" data-i18n="form.name">姓名 *</label>
+          <input id="name" name="name" placeholder="陈哲飞" required data-i18n-placeholder="ph.name" />
         </div>
 
         <div class="full">
-          <label for="email">邮箱 *</label>
-          <input id="email" type="email" name="email" placeholder="you@example.com" required />
+          <label for="email" data-i18n="form.email">邮箱 *</label>
+          <input id="email" type="email" name="email" placeholder="you@example.com" required data-i18n-placeholder="ph.email" />
         </div>
 
         <div class="full">
-          <label for="address">地址 *</label>
+          <label for="address" data-i18n="form.addr">地址 *</label>
           <input id="address" name="address" placeholder="" required />
         </div>
 
         <div>
-          <label for="fish">鱼类 *</label>
-          <input id="fish" name="fish" placeholder="如：清江鱼" required />
+          <label for="fish" data-i18n="form.item">鱼类 *</label>
+          <input id="fish" name="fish" placeholder="如：清江鱼" required data-i18n-placeholder="ph.item" />
         </div>
 
         <div>
-          <label for="qty">数量 *</label>
+          <label for="qty" data-i18n="form.qty">数量 *</label>
           <input id="qty" type="number" min="1" max="9999" step="1" name="quantity" placeholder="1" required />
         </div>
 
         <div class="full">
-          <label for="note">备注（可选）</label>
-          <textarea id="note" name="note" rows="3" placeholder="处理方式、到货时间等"></textarea>
+          <label for="note" data-i18n="form.remark">备注（可选）</label>
+          <textarea id="note" name="note" rows="3" placeholder="处理方式、到货时间等" data-i18n-placeholder="ph.remark"></textarea>
         </div>
       </div>
 
       <!-- 邮件标题与重定向 -->
       <input type="hidden" name="_subject" value="【新订购】霞ヶ浦伝説釣り师 Store" />
       <input type="hidden" name="_redirect" value="thanks.html" />
+      <input type="hidden" name="_language" id="_lang" value="zh" />
       <!-- 蜜罐防机器人 -->
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
       <div class="actions">
-        <a href="index.html" class="btn secondary">返回</a>
-        <button type="submit" class="btn">提交订购</button>
+        <a href="index.html" class="btn secondary" data-i18n="cta.back">返回</a>
+        <button type="submit" class="btn" data-i18n="cta.submit">提交订购</button>
       </div>
 
-      <p class="note">我们仅将信息用于本次订购联系。</p>
+      <p class="note" data-i18n="order.privacy">我们仅将信息用于本次订购联系。</p>
     </form>
   </main>
 
   <script>
-    // 从 URL 预填“鱼类”，如 order.html?item=清江鱼
+    // URL 预填，如 order.html?item=清江鱼
     const p = new URLSearchParams(location.search);
     const item = p.get('item');
     if (item) document.getElementById('fish').value = decodeURIComponent(item);
+
+    // 轻量 i18n
+    const I18N = {
+      ja:{
+        "order.title":"注文の送信 · 霞ヶ浦伝説釣り師 Store",
+        "order.back":"← トップへ戻る",
+        "order.heading":"注文の送信",
+        "order.info":"ご注文情報",
+        "order.note":"送信後、内容は店主のメールに届きます。",
+        "form.name":"お名前 *","form.email":"メール *","form.addr":"住所 *","form.item":"魚種 *","form.qty":"数量 *","form.remark":"備考（任意）",
+        "ph.name":"山田太郎","ph.email":"you@example.com","ph.item":"例：清江魚","ph.remark":"処理方法、ご希望到着時間など",
+        "cta.back":"戻る","cta.submit":"注文を送信",
+        "order.privacy":"本注文の連絡以外の目的では利用しません。"
+      },
+      zh:{
+        "order.title":"提交订购 · 霞ヶ浦伝説釣り师 Store",
+        "order.back":"← 返回首页",
+        "order.heading":"提交订购",
+        "order.info":"订购信息",
+        "order.note":"提交后系统会把信息发送到店主的邮箱。",
+        "form.name":"姓名 *","form.email":"邮箱 *","form.addr":"地址 *","form.item":"鱼类 *","form.qty":"数量 *","form.remark":"备注（可选）",
+        "ph.name":"陈哲飞","ph.email":"you@example.com","ph.item":"如：清江鱼","ph.remark":"处理方式、到货时间等",
+        "cta.back":"返回","cta.submit":"提交订购",
+        "order.privacy":"我们仅将信息用于本次订购联系。"
+      }
+    };
+    function applyLang(lang){
+      const d = I18N[lang] || I18N.zh;
+      document.documentElement.lang = (lang==='ja')?'ja':'zh-CN';
+      localStorage.setItem('lang', lang);
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const k = el.getAttribute('data-i18n');
+        if(d[k]!=null) el.textContent = d[k];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+        const k = el.getAttribute('data-i18n-placeholder');
+        if(d[k]!=null) el.setAttribute('placeholder', d[k]);
+      });
+      document.title = d["order.title"] || document.title;
+      const hiddenLang=document.getElementById('_lang');
+      if(hiddenLang) hiddenLang.value = (lang==='ja')?'ja':'zh';
+    }
+    (function(){
+      const saved = localStorage.getItem('lang') || 'zh';
+      applyLang(saved);
+      document.querySelectorAll('.lang-switch [data-lang]').forEach(b=>{
+        b.addEventListener('click', ()=>applyLang(b.dataset.lang));
+      });
+    })();
+
+    // 提交前：保持用户填写的鱼类文字，直接提交
+    document.getElementById('orderForm').addEventListener('submit', ()=>{/* no-op */});
   </script>
 </body>
 </html>
