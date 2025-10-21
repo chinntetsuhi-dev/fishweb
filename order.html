@@ -27,7 +27,6 @@
 <body>
   <header class="navbar">
     <div class="container nav-inner">
-      <!-- 左上角语言切换 -->
       <div class="lang-switch" aria-label="言語切替 / 语言切换">
         <button type="button" data-lang="ja" class="lang-btn">日本語</button>
         <span class="sep">/</span>
@@ -79,11 +78,9 @@
         </div>
       </div>
 
-      <!-- 邮件标题与重定向 -->
       <input type="hidden" name="_subject" value="【新订购】霞ヶ浦伝説釣り师 Store" />
       <input type="hidden" name="_redirect" value="thanks.html" />
       <input type="hidden" name="_language" id="_lang" value="zh" />
-      <!-- 蜜罐防机器人 -->
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
       <div class="actions">
@@ -96,12 +93,10 @@
   </main>
 
   <script>
-    // URL 预填，如 order.html?item=清江鱼
     const p = new URLSearchParams(location.search);
     const item = p.get('item');
     if (item) document.getElementById('fish').value = decodeURIComponent(item);
 
-    // 轻量 i18n
     const I18N = {
       ja:{
         "order.title":"注文の送信 · 霞ヶ浦伝説釣り師 Store",
@@ -150,7 +145,6 @@
       });
     })();
 
-    // 提交前：保持用户填写的鱼类文字，直接提交
     document.getElementById('orderForm').addEventListener('submit', ()=>{/* no-op */});
   </script>
 </body>

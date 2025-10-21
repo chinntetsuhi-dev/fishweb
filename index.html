@@ -11,7 +11,6 @@
 <body>
   <header class="navbar">
     <div class="container nav-inner">
-      <!-- 左上角语言切换（绝对定位，不挤压原有布局） -->
       <div class="lang-switch" aria-label="言語切替 / 语言切换">
         <button type="button" data-lang="ja" class="lang-btn">日本語</button>
         <span class="sep">/</span>
@@ -20,28 +19,12 @@
 
       <h1 class="logo" data-i18n="site.title">霞ヶ浦伝説釣り师 Store</h1>
       <nav class="nav-links" aria-label="主导航">
-        <div class="nav-item">
-          <a href="#" data-i18n="nav.spots">钓点</a>
-          <div class="nav-hover" role="status" data-i18n="status.dev">开发中</div>
-        </div>
-        <div class="nav-item">
-          <a href="#" data-i18n="nav.fish">鱼种</a>
-          <div class="nav-hover" role="status" data-i18n="status.dev">开发中</div>
-        </div>
-        <div class="nav-item">
-          <a href="#" data-i18n="nav.place">钓场</a>
-          <div class="nav-hover" role="status" data-i18n="status.dev">开发中</div>
-        </div>
-        <div class="nav-item">
-          <a href="#" data-i18n="nav.rod">鱼竿</a>
-          <div class="nav-hover" role="status" data-i18n="status.dev">开发中</div>
-        </div>
-        <div class="nav-item">
-          <a href="#" data-i18n="nav.bait">饵料</a>
-          <div class="nav-hover" role="status" data-i18n="status.dev">开发中</div>
-        </div>
+        <div class="nav-item"><a href="#" data-i18n="nav.spots">钓点</a><div class="nav-hover" role="status" data-i18n="status.dev">开发中</div></div>
+        <div class="nav-item"><a href="#" data-i18n="nav.fish">鱼种</a><div class="nav-hover" role="status" data-i18n="status.dev">开发中</div></div>
+        <div class="nav-item"><a href="#" data-i18n="nav.place">钓场</a><div class="nav-hover" role="status" data-i18n="status.dev">开发中</div></div>
+        <div class="nav-item"><a href="#" data-i18n="nav.rod">鱼竿</a><div class="nav-hover" role="status" data-i18n="status.dev">开发中</div></div>
+        <div class="nav-item"><a href="#" data-i18n="nav.bait">饵料</a><div class="nav-hover" role="status" data-i18n="status.dev">开发中</div></div>
 
-        <!-- 开发者悬停气泡（固定文案保留原样，不做强翻） -->
         <div class="dev-tooltip">
           <a href="#" data-i18n="nav.dev">开发者</a>
           <div class="tooltip-content">
@@ -54,49 +37,41 @@
     </div>
   </header>
 
-  <!-- 顶部 Hero（可选背景图） -->
-  <section class="hero" style="--hero-bg-url: url('back.png');">
-
+  <!-- 首屏：滚动接管（只放大 + 暗角），结束后不自动滚动，等待用户下一次滚动 -->
+  <section class="hero scroll-hero" style="--hero-bg-url: url('back.png');">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
 
     <div class="container hero-inner">
       <p class="eyebrow">Kasumigaura</p>
+      <!-- 新大标题：纯净颜色、无纹理 -->
       <h2 class="hero-title" data-i18n="hero.title">把湖面上的故事，带回家</h2>
       <p class="hero-subtitle" data-i18n="hero.sub">甄选在地水域风味与装备，从新手到大师都能找到合手之物。</p>
+
+      <div class="scroll-cue" aria-hidden="true"><span class="wheel"></span></div>
     </div>
   </section>
 
   <!-- 产品区 -->
-  <main class="container product-section" aria-label="产品列表">
-    <!-- 卡片 1：清江鱼（订购跳转） -->
+  <main id="products" class="container product-section reveal-on-scroll" aria-label="产品列表">
+    <!-- 卡片 1 -->
     <article class="product-card">
       <figure class="media">
-        <!-- 增加尺寸与异步解码，稳定版面 -->
         <img src="nianyu.jpg" alt="清江鱼" loading="lazy" decoding="async" width="1200" height="900" />
         <div class="capsule">
-          <div class="capsule-top">
-            <span class="badge badge--new" data-i18n="badge.new">新品</span>
-            <span class="badge badge--hot" data-i18n="badge.hot">热销</span>
-          </div>
+          <div class="capsule-top"><span class="badge badge--new" data-i18n="badge.new">新品</span><span class="badge badge--hot" data-i18n="badge.hot">热销</span></div>
           <h3 class="capsule-title" data-i18n="fish.qingjiang">清江鱼</h3>
           <div class="capsule-tags"><span data-i18n="tag.fw">淡水</span><span data-i18n="tag.lake">湖区</span><span data-i18n="tag.chilled">冷鲜</span></div>
-          <div class="capsule-price">
-            <span class="discount" data-i18n="price.off30">-30%</span>
-            <div class="price-wrap">
-              <del class="old">¥ 1</del>
-              <strong class="now">¥ 0</strong>
-            </div>
-          </div>
+          <div class="capsule-price"><span class="discount" data-i18n="price.off30">-30%</span><div class="price-wrap"><del class="old">¥ 1</del><strong class="now">¥ 0</strong></div></div>
           <button class="wish" aria-label="加入愿望单"><span class="heart">❤</span><span class="txt" data-i18n="cta.wish">加入心愿单</span></button>
         </div>
       </figure>
       <h3 class="product-title" data-i18n="fish.qingjiang">清江鱼</h3>
       <p class="price"><span class="currency">¥</span> 0 <span class="from" data-i18n="price.from">起</span></p>
-      <div class="button-group">
-        <a class="btn order-btn" href="order.html?item=%E6%B8%85%E6%B1%9F%E9%B1%BC" aria-label="订购 清江鱼" data-i18n="cta.order">订购</a>
-      </div>
+      <div class="button-group"><a class="btn order-btn" href="order.html?item=%E6%B8%85%E6%B1%9F%E9%B1%BC" aria-label="订购 清江鱼" data-i18n="cta.order">订购</a></div>
     </article>
 
-    <!-- 卡片 2：鳊鱼（订购跳转） -->
+    <!-- 卡片 2 -->
     <article class="product-card">
       <figure class="media">
         <img src="bianyu.jpg" alt="鳊鱼" loading="lazy" decoding="async" width="1200" height="900" />
@@ -104,20 +79,16 @@
           <div class="capsule-top"><span class="badge badge--new" data-i18n="badge.new">新品</span></div>
           <h3 class="capsule-title" data-i18n="fish.bian">鳊鱼</h3>
           <div class="capsule-tags"><span data-i18n="tag.fw">淡水</span><span data-i18n="tag.whole">整装</span></div>
-          <div class="capsule-price">
-            <div class="price-wrap"><strong class="now">¥ 0</strong></div>
-          </div>
+          <div class="capsule-price"><div class="price-wrap"><strong class="now">¥ 0</strong></div></div>
           <button class="wish" aria-label="加入愿望单"><span class="heart">❤</span><span class="txt" data-i18n="cta.wish">加入心愿单</span></button>
         </div>
       </figure>
       <h3 class="product-title" data-i18n="fish.bian">鳊鱼</h3>
       <p class="price"><span class="currency">¥</span> 0 <span class="from" data-i18n="price.from">起</span></p>
-      <div class="button-group">
-        <a class="btn order-btn" href="order.html?item=%E9%B3%8A%E9%B1%BC" aria-label="订购 鳊鱼" data-i18n="cta.order">订购</a>
-      </div>
+      <div class="button-group"><a class="btn order-btn" href="order.html?item=%E9%B3%8A%E9%B1%BC" aria-label="订购 鳊鱼" data-i18n="cta.order">订购</a></div>
     </article>
 
-    <!-- 卡片 3：溪流鱼（保持不跳转：示例为提示） -->
+    <!-- 卡片 3 -->
     <article class="product-card">
       <figure class="media">
         <img src="xiliu.jpg" alt="溪流鱼" loading="lazy" decoding="async" width="1200" height="900" />
@@ -130,9 +101,7 @@
       </figure>
       <h3 class="product-title" data-i18n="fish.other">其他</h3>
       <p class="price"><span class="currency">¥</span> 0 <span class="from" data-i18n="price.from">起</span></p>
-      <div class="button-group">
-        <button class="btn order-btn" aria-label="订购 溪流鱼" data-alert="true" data-i18n="cta.order">订购</button>
-      </div>
+      <div class="button-group"><button class="btn order-btn" aria-label="订购 溪流鱼" data-alert="true" data-i18n="cta.order">订购</button></div>
     </article>
   </main>
 
@@ -143,30 +112,10 @@
   </footer>
 
   <script>
-    // 简易 i18n 词典（可按需扩展键值）
+    // ===== i18n =====
     const I18N = {
-      ja: {
-        "site.title":"霞ヶ浦伝説釣り師 Store",
-        "nav.spots":"釣り場","nav.fish":"魚種","nav.place":"釣り場所","nav.rod":"ロッド","nav.bait":"エサ","nav.dev":"開発者",
-        "status.dev":"開発中",
-        "hero.title":"湖の物語をご自宅へ","hero.sub":"地元の風味と装備を厳選。初心者から達人までぴったりが見つかります。",
-        "badge.new":"新着","badge.hot":"人気","fish.qingjiang":"清江魚","fish.bian":"鳊（ビャン）","fish.stream":"渓流魚","fish.other":"その他",
-        "tag.fw":"淡水","tag.lake":"湖域","tag.chilled":"チルド","tag.whole":"丸物","tag.stream":"渓流","tag.wild":"野捕",
-        "price.from":"より","price.off30":"-30%",
-        "cta.wish":"ほしい物リストに追加","cta.order":"注文",
-        "footer.copy":"© 2025 霞ヶ浦伝説釣り師 Store","footer.tip":"節度ある消費を"
-      },
-      zh: {
-        "site.title":"霞ヶ浦传奇钓师商店",
-        "nav.spots":"钓点","nav.fish":"鱼种","nav.place":"钓场","nav.rod":"鱼竿","nav.bait":"饵料","nav.dev":"开发者",
-        "status.dev":"开发中",
-        "hero.title":"把湖面上的故事，带回家","hero.sub":"甄选在地水域风味与装备，从新手到大师都能找到合手之物。",
-        "badge.new":"新品","badge.hot":"热销","fish.qingjiang":"清江鱼","fish.bian":"鳊鱼","fish.stream":"溪流鱼","fish.other":"其他",
-        "tag.fw":"淡水","tag.lake":"湖区","tag.chilled":"冷鲜","tag.whole":"整装","tag.stream":"溪流","tag.wild":"野捕",
-        "price.from":"起","price.off30":"-30%",
-        "cta.wish":"加入心愿单","cta.order":"订购",
-        "footer.copy":"© 2025 霞浦传奇钓师商店","footer.tip":"理性消费"
-      }
+      ja: {"site.title":"霞ヶ浦伝説釣り師 Store","nav.spots":"釣り場","nav.fish":"魚種","nav.place":"釣り場所","nav.rod":"ロッド","nav.bait":"エサ","nav.dev":"開発者","status.dev":"開発中","hero.title":"湖の物語をご自宅へ","hero.sub":"地元の風味と装備を厳選。初心者から達人までぴったりが見つかります。","badge.new":"新着","badge.hot":"人気","fish.qingjiang":"清江魚","fish.bian":"鳊（ビャン）","fish.stream":"渓流魚","fish.other":"その他","tag.fw":"淡水","tag.lake":"湖域","tag.chilled":"チルド","tag.whole":"丸物","tag.stream":"渓流","tag.wild":"野捕","price.from":"より","price.off30":"-30%","cta.wish":"ほしい物リストに追加","cta.order":"注文","footer.copy":"© 2025 霞ヶ浦伝説釣り師 Store","footer.tip":"節度ある消費を"},
+      zh: {"site.title":"霞ヶ浦传奇钓师商店","nav.spots":"钓点","nav.fish":"鱼种","nav.place":"钓场","nav.rod":"鱼竿","nav.bait":"饵料","nav.dev":"开发者","status.dev":"开发中","hero.title":"把湖面上的故事，带回家","hero.sub":"甄选在地水域风味与装备，从新手到大师都能找到合手之物。","badge.new":"新品","badge.hot":"热销","fish.qingjiang":"清江鱼","fish.bian":"鳊鱼","fish.stream":"溪流鱼","fish.other":"其他","tag.fw":"淡水","tag.lake":"湖区","tag.chilled":"冷鲜","tag.whole":"整装","tag.stream":"溪流","tag.wild":"野捕","price.from":"起","price.off30":"-30%","cta.wish":"加入心愿单","cta.order":"订购","footer.copy":"© 2025 霞浦传奇钓师商店","footer.tip":"理性消费"}
     };
     function applyLang(lang){
       const d = I18N[lang] || I18N.zh;
@@ -177,12 +126,10 @@
         if(d[k]!=null) el.textContent = d[k];
       });
       document.title = d["site.title"] || document.title;
-      // 按钮的 alert 文案也做语言化
       document.querySelectorAll('.order-btn[data-alert="true"]').forEach(btn=>{
         btn.onclick = () => alert(lang==='ja' ? 'オンライン注文は準備中です。' : '该商品的在线订购尚未开通，敬请期待。');
       });
     }
-    // 初始化
     (function(){
       const saved = localStorage.getItem('lang') || 'zh';
       applyLang(saved);
@@ -191,12 +138,141 @@
       });
     })();
 
-    // 原有：未开通商品提示（守护）
-    document.querySelectorAll('.order-btn[data-alert="true"]')
-      .forEach(btn => btn.addEventListener('click', () => {
-        const lang = localStorage.getItem('lang') || 'zh';
-        alert(lang==='ja' ? 'オンライン注文は準備中です。' : '该商品的在线订购尚未开通，敬请期待。');
-      }));
+    // ===== 首屏滚动接管（平滑：easeInOut，不自动滚到产品区；支持上滑返回） =====
+    (function(){
+      const hero     = document.querySelector('.scroll-hero');
+      const heroBg   = document.querySelector('.scroll-hero .hero-bg');
+      const vignette = document.querySelector('.scroll-hero .hero-vignette');
+      const title    = document.querySelector('.scroll-hero .hero-title');
+      const sub      = document.querySelector('.scroll-hero .hero-subtitle');
+      const products = document.getElementById('products');
+      if(!hero || !heroBg || !vignette || !title || !sub || !products) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const INTRO_KEY = 'introDone';
+      let introDone = sessionStorage.getItem(INTRO_KEY) === '1';
+
+      // 参数
+      const DURATION   = 1000;   // 更柔和
+      const SCALE_MAX  = 1.22;   // 克制一点
+      const VIG_MIN    = 0.22;
+      const VIG_MAX    = 0.5;
+      const TITLE_LIFT = 10;
+      const SUB_LIFT   = 8;
+      const easeInOut = t => (t<0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2);
+
+      function setProgress(p){
+        const scale = 1 + (SCALE_MAX - 1) * p;
+        heroBg.style.setProperty('--scroll-scale', scale.toFixed(3));
+        vignette.style.setProperty('--vig', (VIG_MIN + (VIG_MAX - VIG_MIN) * p).toFixed(3));
+        title.style.setProperty('--title-translate', `${(-TITLE_LIFT * p).toFixed(2)}px`);
+        sub.style.setProperty('--sub-translate', `${(-SUB_LIFT * p).toFixed(2)}px`);
+        // 几乎不改透明度，避免突兀
+        title.style.setProperty('--title-opacity', (1 - 0.10 * p).toFixed(3));
+        sub.style.setProperty('--sub-opacity', (1 - 0.16 * p).toFixed(3));
+      }
+
+      function lockScroll(lock){
+        document.documentElement.classList.toggle('intro-lock', lock);
+        document.body.classList.toggle('intro-lock', lock);
+      }
+
+      if(prefersReduced || introDone){
+        hero.classList.add('intro-finished');
+        return;
+      }else{
+        lockScroll(true);
+      }
+
+      let animating = false, rafId = 0;
+
+      function animate(to1, onDone){
+        if(animating) return;
+        animating = true;
+        const from = to1 ? 0 : 1;
+        const to   = to1 ? 1 : 0;
+        const t0 = performance.now();
+        const tick = (now)=>{
+          const raw = Math.min(1, (now - t0) / DURATION);
+          const e = easeInOut(raw);
+          const p = from + (to - from) * e;
+          setProgress(p);
+          if(raw < 1){ rafId = requestAnimationFrame(tick); }
+          else{ animating = false; onDone && onDone(); }
+        };
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function forwardFinish(){
+        introDone = true;
+        sessionStorage.setItem(INTRO_KEY, '1');
+        hero.classList.add('intro-finished');
+        lockScroll(false);
+        // 不自动滚动，等待用户下一次滚动，避免“跳”
+      }
+      function backwardFinish(){
+        introDone = false;
+        hero.classList.remove('intro-finished');
+        lockScroll(false);
+        // 到顶（已经在顶），无需强制滚动
+      }
+
+      function playForward(){ lockScroll(true); animate(true, forwardFinish); }
+      function playBackward(){ lockScroll(true); animate(false, backwardFinish); }
+
+      // 触发逻辑
+      const firstForward = (e)=>{ if(!animating){ playForward(); } e.preventDefault(); };
+
+      const onWheel = (e)=>{
+        if(!introDone){
+          if(e.deltaY > 0){ firstForward(e); }
+        }else{
+          // 上滑返回主界面：仅在接近页面顶部时触发
+          if(e.deltaY < 0 && window.scrollY <= 4){ e.preventDefault(); playBackward(); }
+        }
+      };
+      const onKey = (e)=>{
+        const downKeys = [' ', 'PageDown', 'ArrowDown', 'ArrowRight', 'End'];
+        const upKeys   = ['PageUp', 'ArrowUp', 'ArrowLeft', 'Home'];
+        if(!introDone){
+          if(downKeys.includes(e.key)){ firstForward(e); }
+        }else{
+          if(upKeys.includes(e.key) && window.scrollY <= 2){ e.preventDefault(); playBackward(); }
+        }
+      };
+      let touchStartY = 0;
+      const onTouchStart = (e)=>{ touchStartY = e.touches[0].clientY; };
+      const onTouchMove  = (e)=>{
+        const dy = e.touches[0].clientY - touchStartY;
+        if(!introDone){
+          if(dy < -6){ firstForward(e); }
+        }else{
+          if(dy > 6 && window.scrollY <= 6){ e.preventDefault(); playBackward(); }
+        }
+      };
+
+      window.addEventListener('wheel', onWheel, { passive:false });
+      window.addEventListener('keydown', onKey, { passive:false });
+      window.addEventListener('touchstart', onTouchStart, { passive:true });
+      window.addEventListener('touchmove', onTouchMove, { passive:false });
+
+      // 若出现其它方式引发的轻微滚动，不再强制“跳”，让用户自己继续
+      // （删除了之前“scrollY>0 即强触发”的逻辑）
+    })();
+
+    // 产品区进场
+    (function(){
+      const revealTargets = document.querySelectorAll('.reveal-on-scroll');
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, {root:null, rootMargin:'0px 0px -10% 0px', threshold:0.1});
+      revealTargets.forEach(el=>io.observe(el));
+    })();
   </script>
 </body>
 </html>
